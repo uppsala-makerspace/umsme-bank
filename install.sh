@@ -15,4 +15,4 @@ php composer-setup.php --quiet
 rm composer-setup.php
 
 # Now install swedbank-json
-php composer.phar require walle89/swedbank-json
+php composer.phar require walle89/swedbank-json:dev-pre-alpha-1.0.0

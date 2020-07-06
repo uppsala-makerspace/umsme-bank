@@ -9,7 +9,8 @@ session_start();
 $bankApp  = 'swedbank_foretag';
 $username = $_GET['pnr'];
 
-$auth = new SwedbankJson\Auth\MobileBankID($bankApp, $username);
+$appData = new SwedbankJson\AppData($bankApp, __DIR__.'/AppData.json');
+$auth = new SwedbankJson\Auth\MobileBankID($appData, $username);
 $auth->initAuth();
 
 header('Content-type: application/json');

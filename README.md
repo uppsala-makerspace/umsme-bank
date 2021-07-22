@@ -11,6 +11,8 @@ Först, se till att du har php installerat. Därefter ska du köra `install.sh` 
 1. Installera composer
 2. Använda composer för att installera SwedbankJSON
 
+OBS VIKTIGT, i väntan på nästa stabila version av SwedbankJSON (och på grund av en uppdatering i Swedbanks API) behöver man byta ut implementationen man hittar under `vendor/walle89/` mot den man hittar i följande [forkade projekt](https://github.com/matthiaspalmer/SwedbankJson/tree/pre-alpha-1.0.0). (En snygg lösning med korrekt dependency via composer vore eftersträvansvärt, men tiden tog slut att lära sig detta.)
+
 ## Kör igång bankintegrationen
 I moderna versioner av php finns en inbyggd webbserver som man sätter igång med:
 
@@ -28,7 +30,9 @@ Du bör få json tillbaka med status `uninitiated`. För att sätta igång authe
 
     http://localhost:8000/initiate.php?pnr=ditt_pers_nr
 
-Därefter bör du få upp en authentisering i din bankid app. Efter att du bekräftat kan du besöka `check.php` igen och se att du nu har får en status som säger `ready`.
+Resultatet är en png med en QR-code som du skannar med din bankid app. Efter att du bekräftat kan du besöka `check.php` igen och se att du nu har får en status som säger `ready`.
+
+Obs, om du lägger med parametern `base64` så får du en base64 enkodad variant av bilden som då skickas som `text/plain`. Detta är bra att ha funktion för att enkelt kunna skapa en data URL för inline bilder i en annan applikation.
 
 Nu kan du läsa ut transaktioner på ditt konto genom att gå till:
 

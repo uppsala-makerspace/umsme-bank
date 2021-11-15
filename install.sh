@@ -15,4 +15,6 @@ php composer-setup.php --quiet
 rm composer-setup.php
 
 # Now install swedbank-json
-php composer.phar require walle89/swedbank-json:dev-pre-alpha-1.0.0
+php composer.phar require walle89/swedbank-json:1.0.0
+# And monolog for logging
+php composer.phar require monolog/monolog
